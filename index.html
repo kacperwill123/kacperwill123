@@ -62,8 +62,8 @@
                         <span class="stat-label">No Upload</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">File Types</span>
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Converters</span>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,11 @@
             <div class="converter-tabs">
                 <button class="tab-button active" data-converter="image">Image Converter</button>
                 <button class="tab-button" data-converter="pdf">PDF Generator</button>
-                <button class="tab-button" data-converter="text">Text Converter</button>
+                <button class="tab-button" data-converter="text">Text Files</button>
+                <button class="tab-button" data-converter="data">Data Formats</button>
+                <button class="tab-button" data-converter="encode">Encoders</button>
+                <button class="tab-button" data-converter="color">Color Tools</button>
+                <button class="tab-button" data-converter="image-pdf">Image to PDF</button>
             </div>
 
             <!-- Image Converter -->
@@ -233,6 +237,242 @@
                             </select>
                         </div>
                         <button class="convert-button" id="convert-text">Convert Text</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Format Converter -->
+            <div class="converter-panel" id="data-converter">
+                <div class="converter-card">
+                    <h3>Data Format Converter</h3>
+                    <p>Convert between CSV, JSON, XML, and other data formats</p>
+
+                    <div class="data-converter-tabs">
+                        <button class="data-tab active" data-type="csv-json">CSV ↔ JSON</button>
+                        <button class="data-tab" data-type="json-xml">JSON ↔ XML</button>
+                        <button class="data-tab" data-type="markdown-html">Markdown → HTML</button>
+                    </div>
+
+                    <!-- CSV to JSON -->
+                    <div class="data-panel active" id="csv-json-panel">
+                        <div class="dual-editor">
+                            <div class="editor-section">
+                                <h4>CSV Input</h4>
+                                <textarea id="csv-input" placeholder="name,age,city&#10;John,30,New York&#10;Jane,25,Los Angeles"></textarea>
+                            </div>
+                            <div class="convert-arrow">→</div>
+                            <div class="editor-section">
+                                <h4>JSON Output</h4>
+                                <textarea id="json-output" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="convert-button" id="csv-to-json">Convert to JSON</button>
+                            <button class="convert-button secondary" id="json-to-csv">Convert to CSV</button>
+                            <button class="convert-button secondary" id="download-data">Download</button>
+                        </div>
+                    </div>
+
+                    <!-- JSON to XML -->
+                    <div class="data-panel" id="json-xml-panel">
+                        <div class="dual-editor">
+                            <div class="editor-section">
+                                <h4>JSON Input</h4>
+                                <textarea id="json-xml-input" placeholder='{"name": "John", "age": 30}'></textarea>
+                            </div>
+                            <div class="convert-arrow">→</div>
+                            <div class="editor-section">
+                                <h4>XML Output</h4>
+                                <textarea id="xml-output" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="convert-button" id="json-to-xml">Convert to XML</button>
+                            <button class="convert-button secondary" id="download-xml">Download</button>
+                        </div>
+                    </div>
+
+                    <!-- Markdown to HTML -->
+                    <div class="data-panel" id="markdown-html-panel">
+                        <div class="dual-editor">
+                            <div class="editor-section">
+                                <h4>Markdown Input</h4>
+                                <textarea id="markdown-input" placeholder="# Heading&#10;**Bold** and *italic*"></textarea>
+                            </div>
+                            <div class="convert-arrow">→</div>
+                            <div class="editor-section">
+                                <h4>HTML Output</h4>
+                                <textarea id="html-output" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="convert-button" id="md-to-html">Convert to HTML</button>
+                            <button class="convert-button secondary" id="download-html">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Encoders/Decoders -->
+            <div class="converter-panel" id="encode-converter">
+                <div class="converter-card">
+                    <h3>Encoders & Decoders</h3>
+                    <p>Encode and decode text in various formats</p>
+
+                    <div class="data-converter-tabs">
+                        <button class="encode-tab active" data-type="base64">Base64</button>
+                        <button class="encode-tab" data-type="url">URL Encode</button>
+                        <button class="encode-tab" data-type="html">HTML Entities</button>
+                        <button class="encode-tab" data-type="hash">Hash Generator</button>
+                    </div>
+
+                    <!-- Base64 -->
+                    <div class="encode-panel active" id="base64-panel">
+                        <div class="dual-editor">
+                            <div class="editor-section full">
+                                <h4>Text Input</h4>
+                                <textarea id="base64-input" placeholder="Enter text to encode/decode"></textarea>
+                            </div>
+                            <div class="editor-section full">
+                                <h4>Base64 Output</h4>
+                                <textarea id="base64-output" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="convert-button" id="encode-base64">Encode</button>
+                            <button class="convert-button secondary" id="decode-base64">Decode</button>
+                            <button class="convert-button secondary" id="copy-base64">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- URL Encode -->
+                    <div class="encode-panel" id="url-panel">
+                        <div class="dual-editor">
+                            <div class="editor-section full">
+                                <h4>Text Input</h4>
+                                <textarea id="url-input" placeholder="Enter URL or text to encode/decode"></textarea>
+                            </div>
+                            <div class="editor-section full">
+                                <h4>Encoded Output</h4>
+                                <textarea id="url-output" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="convert-button" id="encode-url">Encode</button>
+                            <button class="convert-button secondary" id="decode-url">Decode</button>
+                            <button class="convert-button secondary" id="copy-url">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- HTML Entities -->
+                    <div class="encode-panel" id="html-panel">
+                        <div class="dual-editor">
+                            <div class="editor-section full">
+                                <h4>Text Input</h4>
+                                <textarea id="html-input" placeholder="Enter HTML to encode/decode entities"></textarea>
+                            </div>
+                            <div class="editor-section full">
+                                <h4>Encoded Output</h4>
+                                <textarea id="html-entities-output" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="convert-button" id="encode-html">Encode Entities</button>
+                            <button class="convert-button secondary" id="decode-html">Decode Entities</button>
+                            <button class="convert-button secondary" id="copy-html">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Hash Generator -->
+                    <div class="encode-panel" id="hash-panel">
+                        <div class="dual-editor">
+                            <div class="editor-section full">
+                                <h4>Text Input</h4>
+                                <textarea id="hash-input" placeholder="Enter text to hash"></textarea>
+                            </div>
+                            <div class="editor-section full">
+                                <h4>Hash Output</h4>
+                                <textarea id="hash-output" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="convert-button" id="generate-hash">Generate Hash (SHA-256)</button>
+                            <button class="convert-button secondary" id="copy-hash">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Color Converter -->
+            <div class="converter-panel" id="color-converter">
+                <div class="converter-card">
+                    <h3>Color Converter</h3>
+                    <p>Convert between HEX, RGB, HSL color formats</p>
+
+                    <div class="color-tool">
+                        <div class="color-preview-large" id="color-preview"></div>
+
+                        <div class="color-inputs">
+                            <div class="color-input-group">
+                                <label>HEX</label>
+                                <input type="text" id="hex-input" placeholder="#FF5733" value="#667eea">
+                            </div>
+
+                            <div class="color-input-group">
+                                <label>RGB</label>
+                                <div class="rgb-inputs">
+                                    <input type="number" id="r-input" min="0" max="255" placeholder="R" value="102">
+                                    <input type="number" id="g-input" min="0" max="255" placeholder="G" value="126">
+                                    <input type="number" id="b-input" min="0" max="255" placeholder="B" value="234">
+                                </div>
+                            </div>
+
+                            <div class="color-input-group">
+                                <label>HSL</label>
+                                <div class="hsl-inputs">
+                                    <input type="number" id="h-input" min="0" max="360" placeholder="H">
+                                    <input type="number" id="s-input" min="0" max="100" placeholder="S%">
+                                    <input type="number" id="l-input" min="0" max="100" placeholder="L%">
+                                </div>
+                            </div>
+
+                            <div class="color-input-group">
+                                <label>Color Picker</label>
+                                <input type="color" id="color-picker" value="#667eea">
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="convert-button" id="copy-hex">Copy HEX</button>
+                            <button class="convert-button secondary" id="copy-rgb">Copy RGB</button>
+                            <button class="convert-button secondary" id="copy-hsl">Copy HSL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image to PDF -->
+            <div class="converter-panel" id="image-pdf-converter">
+                <div class="converter-card">
+                    <h3>Image to PDF Converter</h3>
+                    <p>Convert multiple images into a single PDF document</p>
+
+                    <div class="upload-area" id="image-pdf-upload">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <rect width="60" height="60" rx="12" fill="#667eea" opacity="0.1"/>
+                            <path d="M30 20V40M20 30H40" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h4>Drop images here or click to upload</h4>
+                        <p>Supports: PNG, JPG, WebP (Multiple files)</p>
+                        <input type="file" id="image-pdf-input" accept="image/*" multiple hidden>
+                    </div>
+
+                    <div class="conversion-options" id="image-pdf-options" style="display: none;">
+                        <div class="image-grid" id="image-grid"></div>
+                        <div class="pdf-settings">
+                            <input type="text" id="image-pdf-filename" placeholder="images.pdf" value="images.pdf">
+                            <button class="convert-button" id="convert-images-pdf">Create PDF</button>
+                        </div>
                     </div>
                 </div>
             </div>
